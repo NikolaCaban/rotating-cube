@@ -11,5 +11,6 @@ addRotateListener(cube, "right", "rotate-right");
 addRotateListener(cube, "left", "rotate-left");
 addRotateListener(cube, "up", "rotate-up");
 addRotateListener(cube, "down", "rotate-down");
-addRotateListener(cube, "z-axis-rotation", "rotate-z");
+addRotateListener(cube, "z-axis-right", "rotate-z-right");
+addRotateListener(cube, "z-axis-left", "rotate-z-left");
 addRotateListener(cube, "stop", "none");
