@@ -35,8 +35,8 @@ body {
 .cube {
   position: relative;
   transform-style: preserve-3d;
-  animation-name: rotate;
-  animation-duration: 30s;
+  animation-name: none;
+  animation-duration: 20s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
@@ -71,7 +71,7 @@ body {
 }
 
 .face-bottom {
-    transform: translateX(-150px) rotateX(90deg);
+    transform: translateX(-150px) rotateX(-90deg);
     background: seagreen;
   }
 
@@ -86,12 +86,33 @@ body {
   }
 
 
-  @keyframes rotate {
+  @keyframes rotate-right {
     0% {
       transform: rotate3d(0, 0, 0, 0);
     }
     100% {
       transform: rotate3d(0, 1, 0, 360deg);
+      ;
+    }
+  }
+
+  @keyframes rotate-top {
+    0% {
+      transform: rotate3d(0, 0, 0, 0);
+    }
+    100% {
+      transform: rotate3d(1, 0, 0, 360deg);
+      ;
+    }
+  }
+
+
+  @keyframes rotate-z {
+    0% {
+      transform: rotate3d(0, 0, 0, 0);
+    }
+    100% {
+      transform: rotate3d(0, 0, 1, 360deg);
       ;
     }
   }
