@@ -1,6 +1,52 @@
-html { box-sizing: border-box; }
-*, ::before, ::after { box-sizing: inherit; }
+html {
+  box-sizing: border-box;
+}
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+:root {
+    --cube-size: 300px;
+    --cube-font: 50px;
+    --cube-border: 1px;
+    --cube-face-padding: calc((var(--cube-size) - 2 * var(--cube-border) - var(--cube-font))/2);
+  }
 
 body {
-    margin: 5px;
+  margin: 5px;
+}
+
+.main-content {
+  position: relative;
+}
+
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  perspective: 1400px;
+}
+
+.cube {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.face {
+    width: var(--cube-size);
+    height: var(--cube-size);
+    position: absolute;
+    border: var(--cube-border) solid black;
+    font-size: var(--cube-font);
+    line-height: 1;
+    text-transform: uppercase;
+    padding-top: var(--cube-face-padding);
+    padding-bottom: var(--cube-face-padding);
+    text-align: center;
+}
+
+.face-front {
+
 }
