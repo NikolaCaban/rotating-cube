@@ -8,11 +8,13 @@ html {
 }
 
 :root {
-    --cube-size: 300px;
-    --cube-font: 50px;
-    --cube-border: 1px;
-    --cube-face-padding: calc((var(--cube-size) - 2 * var(--cube-border) - var(--cube-font))/2);
-  }
+  --cube-size: 300px;
+  --cube-font: 50px;
+  --cube-border: 1px;
+  --cube-face-padding: calc(
+    (var(--cube-size) - 2 * var(--cube-border) - var(--cube-font)) / 2
+  );
+}
 
 body {
   margin: 5px;
@@ -23,6 +25,7 @@ body {
 }
 
 .wrapper {
+  margin-top: 200px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -32,21 +35,63 @@ body {
 .cube {
   position: relative;
   transform-style: preserve-3d;
+  animation-name: rotate;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
 .face {
-    width: var(--cube-size);
-    height: var(--cube-size);
-    position: absolute;
-    border: var(--cube-border) solid black;
-    font-size: var(--cube-font);
-    line-height: 1;
-    text-transform: uppercase;
-    padding-top: var(--cube-face-padding);
-    padding-bottom: var(--cube-face-padding);
-    text-align: center;
+  width: var(--cube-size);
+  height: var(--cube-size);
+  position: absolute;
+  border: var(--cube-border) solid black;
+  font-size: var(--cube-font);
+  line-height: 1;
+  text-transform: uppercase;
+  padding-top: var(--cube-face-padding);
+  padding-bottom: var(--cube-face-padding);
+  text-align: center;
+  opacity: .6;
 }
 
 .face-front {
-
+  transform: translateX(-150px) translateY(-150px) translateZ(150px);
+  background: goldenrod;
 }
+
+.face-back {
+  transform: translateX(-150px) translateY(-150px) translateZ(-150px) rotateY(180deg);
+  background: sandybrown;
+}
+
+.face-top {
+    transform: translateX(-150px) translateY(-300px) rotateX(90deg);
+    background: mediumturquoise;
+}
+
+.face-bottom {
+    transform: translateX(-150px) rotateX(90deg);
+    background: seagreen;
+  }
+
+  .face-right {
+    transform: translateY(-150px) rotateY(90deg);
+    background: khaki;
+  }
+
+  .face-left {
+    transform: translateY(-150px) translateX(-300px) rotateY(-90deg);
+    background: lightcoral;
+  }
+
+
+  @keyframes rotate {
+    0% {
+      transform: rotate3d(0, 0, 0, 0);
+    }
+    100% {
+      transform: rotate3d(0, 1, 0, 360deg);
+      ;
+    }
+  }
